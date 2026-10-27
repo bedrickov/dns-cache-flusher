@@ -1,0 +1,18 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and Test
+        run: |
+          cl /O2 /Isrc src/dns_flusher.c tests/test_main.c /Fedns_tests.exe
+          .\dns_tests.exe
+          cl /O2 /Isrc src/dns_flusher.c src/main.c /Fedns_cache_flusher.exe
