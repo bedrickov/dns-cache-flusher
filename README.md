@@ -28,3 +28,5 @@ gcc -O2 -Isrc src/dns_flusher.c tests/test_main.c -o dns_tests.exe
 
 ## Лицензия
 MIT
+
+<!-- verified: 2026-10-30 -->
